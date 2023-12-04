@@ -1,30 +1,6 @@
-import img from "./assets/react-core-concepts.png"
-import componentImg from "./assets/components.png"
-
 import {CORE_CONCEPTS} from "./data.js"
-
-function CoreConcept({image, title, description}){
-  return (
-    <li>
-      <img src={image} alt={title}/>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  );
-}
-
-function Header(){
-  return(
-    <header>
-      <img src={img} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
+import {Header} from "./components/Header.jsx"
+import {CoreConcept} from "./components/CoreConcept.jsx"
 
 function App() {
   return (
