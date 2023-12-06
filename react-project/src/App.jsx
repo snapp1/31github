@@ -3,20 +3,13 @@ import {Header} from "./components/Header.jsx"
 import {CoreConcept} from "./components/CoreConcept.jsx"
 import TabButton from "./components/TabButton.jsx"
 import { useState } from "react";
+import { EXAMPLES } from "./data.js";
 
 function App() {
-  const [val, setVal] = useState("Initial val");
+  const [val, setVal] = useState("jsx");
 
   function clickHandler(type){
-    if(type === 0){
-      setVal("Hoh!")
-    }else if(type === 1){
-      setVal("Hah!")
-    }else if(type === 2){
-      setVal("Heh!")
-    }else if(type === 3){
-      setVal("Hyh!")
-    }
+    setVal(type)
   }
   return (
     <div>
@@ -34,12 +27,20 @@ function App() {
         <section id="examples">
           <h2>Examples!</h2>
           <menu>
-            <TabButton clickHandler={() => clickHandler(0)}>Components</TabButton>
-            <TabButton clickHandler={() => clickHandler(1)}>JSX</TabButton>
-            <TabButton clickHandler={() => clickHandler(2)}>Props</TabButton>
-            <TabButton clickHandler={() => clickHandler(3)}>State</TabButton>
+            <TabButton clickHandler={() => clickHandler("components")}>Components</TabButton>
+            <TabButton clickHandler={() => clickHandler("jsx")}>JSX</TabButton>
+            <TabButton clickHandler={() => clickHandler("props")}>Props</TabButton>
+            <TabButton clickHandler={() => clickHandler("state")}>State</TabButton>
           </menu>
-          {val}
+          <div id="tab-content">
+            <h3>{EXAMPLES[val].title}</h3>
+            <p>{EXAMPLES[val].description}</p>
+            <pre>
+              <code>
+                {EXAMPLES[val].code}
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
