@@ -6,7 +6,20 @@ import { useState } from "react";
 import { EXAMPLES } from "./data.js";
 
 function App() {
-  const [val, setVal] = useState("jsx");
+  const [val, setVal] = useState();
+
+  var tabContent = (<h1>Please select any tab.</h1>)
+  if(val){
+    tabContent = (<div id="tab-content">
+    <h3>{EXAMPLES[val].title}</h3>
+    <p>{EXAMPLES[val].description}</p>
+    <pre>
+      <code>
+        {EXAMPLES[val].code}
+      </code>
+    </pre>
+  </div>);
+  }
 
   function clickHandler(type){
     setVal(type)
@@ -32,15 +45,7 @@ function App() {
             <TabButton clickHandler={() => clickHandler("props")}>Props</TabButton>
             <TabButton clickHandler={() => clickHandler("state")}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[val].title}</h3>
-            <p>{EXAMPLES[val].description}</p>
-            <pre>
-              <code>
-                {EXAMPLES[val].code}
-              </code>
-            </pre>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
