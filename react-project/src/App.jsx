@@ -40,10 +40,10 @@ function App() {
         <section id="examples">
           <h2>Examples!</h2>
           <menu>
-            <TabButton clickHandler={() => clickHandler("components")}>Components</TabButton>
-            <TabButton clickHandler={() => clickHandler("jsx")}>JSX</TabButton>
-            <TabButton clickHandler={() => clickHandler("props")}>Props</TabButton>
-            <TabButton clickHandler={() => clickHandler("state")}>State</TabButton>
+            <TabButton isSelected={val === "components"} clickHandler={() => clickHandler("components")}>Components</TabButton>
+            <TabButton isSelected={val === "jsx"} clickHandler={() => clickHandler("jsx")}>JSX</TabButton>
+            <TabButton isSelected={val === "props"} clickHandler={() => clickHandler("props")}>Props</TabButton>
+            <TabButton isSelected={val === "state"} clickHandler={() => clickHandler("state")}>State</TabButton>
           </menu>
           {tabContent}
         </section>
