@@ -1,6 +1,33 @@
-//Implement exception handler that will output single exception but would take different exceptions in input
+// Implement exception handler that will output single exception but would take different exceptions in input
 // in different formats.
+// - Plain text (e.g. “Failed to load resource: the server responded with a status of 404 ()”
+// - JSON (e.g. “{ “exceptionType”: “System.NullReferenceException”, “exceptionMessage”:  “Object reference not set to an instance of an object. “} 
+// - Minidumps (binary file)
+// - there could be more in future
 
-IException ExceptionFabric{
+// - Input: Format: string, Data: string
+// - Output: OpenTelemetryException { Type: string, Message: string, Stacktrace: string }
+
+public class ExceptionFabric {
     
+}
+
+public OpenTelemetryException {
+    // Some logic for exception
+}
+
+public interface IOpenTelemetryExceptionConverter {
+    public OpenTelemetryException Convert(string exception);
+}
+
+public PlainTextConverter : IOpenTelemetryExceptionConverter {
+    OpenTelemetryException Convert(string exception) {
+        //some converter logic
+    }
+}
+
+public JsonConverter : IOpenTelemetryExceptionConverter {
+    OpenTelemetryException Convert(string exception) {
+        //some converter logic
+    }
 }
