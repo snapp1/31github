@@ -8,7 +8,7 @@
 // - Input: Format: string, Data: string
 // - Output: OpenTelemetryException { Type: string, Message: string, Stacktrace: string }
 
-public class ExceptionFabric {
+public class ExceptionFactory {
     
 }
 
