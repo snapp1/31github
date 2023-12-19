@@ -9,8 +9,26 @@
 // - Output: OpenTelemetryException { Type: string, Message: string, Stacktrace: string }
 
 public class ExceptionFabric {
-    
+    IOpenTelemetryExceptionConverter CreateConcrete(string ConcreteType) {
+        switch(ConcreteType){
+            case "PlainText":
+                return new PlainTextConverter();
+            case "Json":
+                return new JsonConverter();
+        }
+    }
 }
+
+public class Solution {
+    public static void Main(string args[]){
+        var type = args[0];
+        var exception = args[1];
+        ExceptionFabric fabric = new ExceptionFabric();
+        IOpenTelemetryExceptionConverter openTelemetryExceptionConverter = fabric.CreateConcrete(type);
+        var result = openTelemetryExceptionConverter.Convert(exception);
+    }
+}
+
 
 public OpenTelemetryException {
     // Some logic for exception
