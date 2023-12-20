@@ -8,6 +8,7 @@
 // - Input: Format: string, Data: string
 // - Output: OpenTelemetryException { Type: string, Message: string, Stacktrace: string }
 
+
 public class ExceptionFabric {
     IOpenTelemetryExceptionConverter CreateConcrete(string ConcreteType) {
         switch(ConcreteType){
