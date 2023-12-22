@@ -50,3 +50,13 @@ class Program {
         Console.WriteLine(userPrefConfig.GetConfiguration());
     }
 }
+
+// In this implementation:
+
+// IConfigurationComponent is the base interface for all components.
+// BaseConfiguration is a concrete component implementing IConfigurationComponent.
+// ConfigurationDecorator is an abstract decorator implementing IConfigurationComponent.
+// NetworkConfigurationDecorator and UserPreferencesDecorator are concrete decorators that add additional behavior to the base configuration.
+// In the Main method, we create a base configuration and then decorate it with network and user preference settings. The flexibility of the Decorator Pattern is shown by how we can stack decorators on top of each other to extend functionality.
+
+// This is a simple example to illustrate the concept. In a real-world scenario, you'd likely have more complex logic and more types of configuration settings.
